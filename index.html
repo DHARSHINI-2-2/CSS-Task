@@ -4,59 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./bootstrap-5.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap-5.3.7-dist/css/bootstrap.min.css">
     <style>
-        g1,g2{
-            height: 300px;
+        p{
+            align-content: center;
+            
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<div><nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Portfolio</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#"> COFFEE SHOP STARTUP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+          <a class="nav-link" href="#">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link" href="#">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
-<div class="row">
-    <div class="col bg-danger-subtle" id="g1">
-        <img src="" alt="image">
+
+
+        <div class="row">
+            <div class="col bg-body-secondary text-center" id="div1">
+            <p style="text-align: center;margin-top: 150px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque accusamus aliquam qui rerum! Accusantium magnam odit ratione quos laudantium perferendis quia aspernatur vel animi quas eos, maxime voluptates in iure nostrum consequatur totam facilis reprehenderit repellendus? Porro sunt nisi iure dignissimos saepe perferendis sapiente. Fuga corrupti veritatis ratione nisi maiores!</p>
+        </div>
+        <div class="col" id="div2">
+            <img src="https://www.forbes.com/advisor/wp-content/uploads/2023/01/How_To_Start_A_Coffee_Shop_-_article_image.jpg" alt="" style="width: 700px;">
+        </div>
+        </div>
+
+<div class="container">
+    <div class="d-flex justify-content-center gap-4 mt-5">
+  <!-- Card 1 -->
+  <div class="card" style="width: 18rem;">
+    <img src="https://angelinos.com/cdn/shop/articles/How_Much_Milk_Coffee_in_a_Cappuccino.jpg?v=1701189122&width=320" class="card-img-top h-50" alt="Coffee Image">
+    <div class="card-body">
+      <h5 class="card-title">Cappuccino</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
-    <div class="col bg-body-secondary" id="g2">
-        <li>name:</li>
-        <li>class:</li>
-        <li>year:</li>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card" style="width: 18rem;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR5PY5GLtZXM5wFybH2Fosb0DE3jyrjQauoQ&s" class="card-img-top h-50" alt="Placeholder Image">
+    <div class="card-body">
+      <h5 class="card-title">Macchiato</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card" style="width: 18rem;">
+    <img src="https://www.oddbeans.in/cdn/shop/articles/image3_e279df19-5f87-4d11-a7b8-fad457ab400e.jpg?v=1721627413" class="card-img-top h-50" alt="Placeholder Image">
+    <div class="card-body">
+      <h5 class="card-title">Frappucino</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
 </div>
+
+</div>
+    
+    
 </body>
 </html>
