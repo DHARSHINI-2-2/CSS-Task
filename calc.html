@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function add(a, b){
+    console.log("Result = " + (a + b)); 
+}
+
+function subtract(a, b){
+    console.log("Result = " + (a - b)); 
+}
+
+function multiply(a, b){
+    console.log("Result = " + (a * b)); 
+}
+
+function divide(a, b){
+    console.log("Result = " + (a / b)); 
+}
+
+function mod(a, b){
+    console.log("Result = " + (a % b)); 
+}
+
+let a = parseFloat( prompt("Enter the number 1: "));
+let b = parseFloat( prompt("Enter the number 2: "));
+
+
+console.log("add");
+console.log("subtract");
+console.log("multiply");
+console.log("divide");
+console.log("mod");
+
+var choice = prompt("Enter your choice: ");
+
+switch (choice) {
+    case "add":
+        add(a,b)
+        break;
+
+    case "subtract":
+        sub(b,a);
+        break;
+
+    case "multiply":
+        mul(a,b);
+        break;
+
+    case "divide":
+        if (b == 0){
+            console.log("Error: Cannot be multiplied my Zero!");
+            break;
+        }
+
+        else{
+            div(a,b);
+            break;
+        }
+
+    case "mod":
+        mod(a,b);
+        break;
+
+    default:
+        console.log("Invalid Input!")
+        break;
+}
+</script>
+</body>
+</html>
