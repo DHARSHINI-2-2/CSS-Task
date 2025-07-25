@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        input,select,button{
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+        <h2>CALCULATOR USING JAVASCRIPT</h2>
+        <input type="number" placeholder="enter first value" id="num1"><br>
+        <input type="number" placeholder="enter second value" id="num2"><br>
+        <select name="" id="operations">
+            <option value="Addition">Addition</option>
+            <option value="Subtraction">Subtraction</option>
+            <option value="Multiplication">Multiplication</option>
+            <option value="Division">Division</option>
+        </select>
+        <button onclick="calculate()">Calculate</button>
+        <div id="result">result </div>
+    
+
+    <script>
+        function calculate(){
+        let num1=parseInt(document.getElementById("num1").value);
+        let num2=parseInt(document.getElementById("num2").value);
+        const operation=document.getElementById("operations").value;
+        let result;
+            if(isNaN(num1) || isNaN(num2))
+            {
+                let result= "enter the value";
+            }
+            else{
+                const ops = ["Addition", "Subtraction", "Multiplication", "Division"];
+                let i = ops.indexOf(operations);
+                while (i >= 0 && i < ops.length) {
+        // Use index to choose operation
+                    if (i == 0)      result = num1 + num2;
+                    else if (i == 1) result = num1 - num2;
+                    else if (i == 2) result = num1 * num2;
+                    else if (i == 3) result = (num2 === 0) ? "Cannot divide by zero" : num1 / num2;
+                    break;
+                }
+                if (i == -1) result = "Unknown operation";
+            }
+                
+               let r= document.getElementById("result").innerText="result is"+ " "+ result;
+        }
+    </script>
+</body>
+</html>
