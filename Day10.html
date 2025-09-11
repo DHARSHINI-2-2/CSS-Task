@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Quantifiers
+        let text="aaaba";
+        let pattern1=/\a*/g;
+        let result1=text.match(pattern1);
+        console.log(result1);
+
+        let pattern2=/\a+/g;
+        let result2=text.match(pattern2);
+        console.log(result2);
+
+        let pattern3=/\a?/g;
+        let result3=text.match(pattern3);
+        console.log(result3);
+
+        //Modifiers
+        let sentence="javascript programming language.\njavascript programming";
+        let pattern4=/\programming/igm;
+        let result4=sentence.match(pattern4);
+        console.log(result4)
+
+        //Metacharacters
+        let digitchar="001js";
+        let pattern5=/\d+/g;
+        let result5=digitchar.match(pattern5);
+        console.log(result5);
+
+        //Grouping
+        let text2="programming language";
+        let pattern6=/(\w+)\s+(\w+)/;
+        let result6=text2.match(pattern6);
+        console.log(result6);
+        console.log(result6[0]);
+        console.log(result6[1]);
+        console.log(result6[2]);
+
+        let text3="apple banana apple grapes";
+
+        //1.exce()-group the output
+        let pattern7 = /(apple)/;
+        let result7= pattern7.exec(text3);
+        console.log(result7);
+        console.log(result7[0]);
+        console.log(result7[1]);
+
+        //2.replace()- replaces matches
+        let pattern8=/(apple)/g;
+        let result8=text3.replace(pattern8,"oranges");
+        console.log(result8);
+
+        //3.split()- splits string using regex
+        let pattern9=/\s+/;  //split by space
+        let result9= text3.split(pattern9);
+        console.log(result9);
+
+    </script>
+</body>
+</html>
