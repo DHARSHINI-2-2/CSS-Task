@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //SET: collection of unique values. automatically removes duplicates.
+        //SYNTAX: let mySet=new Set([iterable])
+        //Set() -> is a special constructor not a method
+        let email=new Set([])
+        email.add("js@gmail.com");
+        email.add("java@gmail.com");
+        email.add("py@gmail.com");
+        email.add("py@gmail.com");  //duplicate
+        console.log(email)
+        // email.delete("py@gmail.com");
+        // console.log(email)
+        // email.clear();
+        // console.log(email);
+
+        for(let mailId of email){
+            console.log(mailId);
+        }
+        email.forEach(x=>{
+            console.log(x);
+        })
+
+        let admin=new Set(["write","read","delete"]);
+        let user=new Set(["read"]);
+        function haspermission(role,granted){
+            return role.has(granted);
+        }
+        console.log(haspermission(admin,"delete"));
+        console.log(haspermission(user,"delete"));
+
+        let a=new Set([1,2,3,4,5,1]);
+        let b=new Set([6,7,8,9,10,1]);
+        
+        let union1=new Set([a,b]); 
+        console.log(union1);
+        let union2=new Set([...a,...b]);
+        console.log(union2);
+
+        let intersection=new Set([...a].filter(x=>b.has(x)));
+        console.log(intersection);
+
+        let diff=new Set([...a].filter(x=>!b.has(x)));
+        console.log(diff);
+
+        //entries() method:
+        //returns a new iterator object with [value,value] pairs
+        //Because set has no separate keys only values
+        let fruit=new Set(["apple","banana"]);
+        let entries=fruit.entries();
+        for(let entry of entries){
+            console.log(entry)
+        }
+
+        //weakMap:
+        //A js weakMap is a collection of key/value pairs, key must be object
+        //cannot be used/thrown in for loop
+        //need to use get method to get elements
+
+        let user1={name:"java"};
+        let user2={name:"python"};
+        let mymap=new Map();
+        mymap.set(user1,"welcome");
+        mymap.set(user2,"welcome python!");
+        console.log(mymap);
+
+        for(let map of mymap){
+            console.log(map);   
+        }
+
+        let user3={name:"java"};
+        let user4={name:"python"};
+        let mymap1=new WeakMap();
+        mymap.set(user3,"welcome");
+        mymap.set(user4,"welcome python!");
+        console.log(mymap1.get(user3));
+    </script>
+</body>
+</html>
