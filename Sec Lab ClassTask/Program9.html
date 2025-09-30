@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider{
+            text-align: center;
+            position: relative;
+            width: 60%;
+            margin: auto;
+        }
+        .slider img{
+            width: 100%;
+            height: auto;
+        }
+        .slider button{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #prev{
+            left: 10px;
+        }
+        #next{
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <img src="image1.jpg" class="slider-image" alt="image 1" id="numberbox">
+        <button id="next">Next</button>
+        <button id="prev">Previous</button>
+    </div>
+    <script>
+        let numbers=["image1.jpg", "image2.jpg", "image3.jpeg"];
+        console.log(numbers.length);
+        let currentIndex=0;
+
+        let numberbox=document.getElementById("numberbox");
+        let prebtn=document.getElementById("prev");
+        let nextbtn=document.getElementById("next");
+
+        nextbtn.addEventListener("click",()=>{
+            currentIndex=(currentIndex+1)%numbers.length;
+            numberbox.src=numbers[currentIndex];
+        })
+
+        prebtn.addEventListener("click",()=>{
+            currentIndex=(currentIndex-1+numbers.length)%numbers.length;
+            numberbox.src=numbers[currentIndex];
+        })
+
+        //Automatic sliding
+        setInterval(()=>{
+            currentIndex=(currentIndex+1)%numbers.length;
+            numberbox.src=numbers[currentIndex];
+        },2000);
+    </script>
+</body>
+</html>
