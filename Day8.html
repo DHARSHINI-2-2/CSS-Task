@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Form Input Validator</h1>
+
+    <form id="validationForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" >
+            <div id="nameError" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" >
+            <div id="emailError" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" >
+            <div id="phoneError" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <div id="passwordError" class="error"></div>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('validationForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const passwordInput = document.getElementById('password');
+
+    // Regex patterns
+    const nameRegex = /^[A-Za-z\s-]{2,}$/; 
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
+
+    const phoneRegex = /^(\d{3})?[-.\s]?(\d{3})[-.\s]?(\d{4})$/;
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    function validateInput(input, regex, errorMessage, errorElement) {
+        if (regex.test(input.value)) {
+            errorElement.textContent = '';
+            return true;
+        } else {
+            errorElement.textContent = errorMessage;
+            return false;
+        }
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault(); 
+    
+        let isFormValid = true;
+
+        // Validate each input field
+        const isNameValid = validateInput(nameInput, nameRegex, 'Please enter a valid name (letters and spaces only).', document.getElementById('nameError'));
+        const isEmailValid = validateInput(emailInput, emailRegex, 'Please enter a valid email address.', document.getElementById('emailError'));
+        const isPasswordValid = validateInput(passwordInput, passwordRegex, 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.', document.getElementById('passwordError'));
+        
+        
+        const rawPhoneValue = phoneInput.value.replace(/\D/g, '');
+        if (phoneRegex.test(rawPhoneValue)) {
+            const formattedPhone = rawPhoneValue.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+            phoneInput.value = formattedPhone;
+            document.getElementById('phoneError').textContent = '';
+        } else {
+            document.getElementById('phoneError').textContent = 'Please enter a valid 10-digit phone number.';
+            isFormValid = false;
+        }
+
+        // Check if all fields are valid
+        if (isFormValid && isNameValid && isEmailValid && isPasswordValid) {
+            document.getElementById('formSuccessMessage').textContent = 'Form submitted successfully!';
+            form.reset(); 
+        } else {
+            document.getElementById('formSuccessMessage').textContent = '';
+        }
+    });
+
+    
+    nameInput.addEventListener('input', () => {
+        validateInput(nameInput, nameRegex, 'Please enter a valid name.', document.getElementById('nameError'));
+    });
+    emailInput.addEventListener('input', () => {
+        validateInput(emailInput, emailRegex, 'Please enter a valid email address.', document.getElementById('emailError'));
+    });
+    passwordInput.addEventListener('input', () => {
+        validateInput(passwordInput, passwordRegex, 'Password must be at least 8 characters, with uppercase, lowercase, numbers, and special characters.', document.getElementById('passwordError'));
+    });
+    phoneInput.addEventListener('input', () => {
+        const rawPhoneValue = phoneInput.value.replace(/\D/g, '');
+        if (phoneRegex.test(rawPhoneValue)) {
+            document.getElementById('phoneError').textContent = '';
+        } else {
+            document.getElementById('phoneError').textContent = 'Please enter a valid 10-digit phone number.';
+        }
+    });
+});
+    </script>
+</body>
+</html>
